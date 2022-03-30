@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Team>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Bowling League Website!</h1>
+
+    <img src="~/img/Bowling.jpeg" colspan="4" />
+</div>
+
+<table class="table table0bordered table-striped">
+
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Team ID</td>
+            <td>Team Name</td>
+            <td>Captain ID</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td> @t.TeamID</td>
+                <td>@t.TeamName </td>
+                <td>@t.CaptainID</td>
+
+              
+            </tr>
+            }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Home" asp-action="BowlerList">View Bowler Roster</a>
+</div>
