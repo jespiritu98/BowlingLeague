@@ -34,8 +34,11 @@ namespace BowlingLeague.Models
         [Required(ErrorMessage ="Please enter valid phone number.")]
         public string BowlerPhoneNumber { get; set; }
 
+       
+        //Foreign Key relationship 
         [Required]
         public int TeamID { get; set;}
+        public Team Team { get; set; }
 
 
     }

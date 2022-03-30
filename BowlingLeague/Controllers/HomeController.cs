@@ -26,24 +26,25 @@ namespace BowlingLeague.Controllers
         {
             List<Team> teams = _Context.Teams.ToList();
 
-            //List<Bowler> bowlers = _Context.Bowlers
-            //    .OrderBy(x => x.TeamID)
-            //    .ToList();
             return View(teams);
         }
         public IActionResult BowlerList()
         {
-            var blah = _Context.Bowlers
-                .ToList();
+            List<Bowler> bowlers = _Context.Bowlers.Include(b => b.Team)
+           .OrderBy(b => b.TeamID)
+           .ToList();
+          
 
-        
 
-            return View(blah);
+
+            return View(bowlers);
         }
 
         [HttpGet]
         public IActionResult BowlerForm()
         {
+            ViewBag.Teams = _Context.Teams.ToList();
+
             return View();
         }
 

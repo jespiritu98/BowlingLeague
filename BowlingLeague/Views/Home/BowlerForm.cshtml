@@ -12,6 +12,16 @@
 
         <div asp-validation-summary="All"></div>
 
+        <label asp-for="TeamID">Team Name:</label>
+        <select asp-for="TeamID">
+            <option value="">Select a team</option>
+            @foreach (Team t in ViewBag.Teams)
+            {
+                <option value="@t.TeamID">@t.TeamName</option>
+            }
+        </select>
+        <br />
+
         <label asp-for="BowlerFirstName">First Name:</label>
         <input asp-for="BowlerFirstName" /> <br />
 
@@ -36,8 +46,8 @@
         <label asp-for="BowlerPhoneNumber">Phone Number:</label>
         <input asp-for="BowlerPhoneNumber" /> <br />
 
-        <label asp-for="TeamID">Team ID:</label>
-        <input asp-for="TeamID" /> <br />
+
+
 
         <button type="submit">Register</button>
 
