@@ -28,12 +28,19 @@ namespace BowlingLeague.Controllers
 
             return View(teams);
         }
-        public IActionResult BowlerList()
+        public async Task<IActionResult> BowlerList(string sortOrder, string searchString)
         {
+            ViewData["CurrentFilter"] = searchString;
+
+         
             List<Bowler> bowlers = _Context.Bowlers.Include(b => b.Team)
            .OrderBy(b => b.TeamID)
            .ToList();
           
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    bowlers = _Context.Bowlers.Where(b => b.Team.Contains(searchString));
+            //}
 
 
 
